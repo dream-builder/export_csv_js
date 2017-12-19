@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>CSV Export</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<button id="export_csv">Export CSV file</button>
+
+	<script src="sci_export.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(e) {
+			
+			$("#export_csv").click(function(){
+				//Export objcet
+				var ex = new SCI_Export();
+	
+				//Json object for export
+				js={
+					"head": ["COl 1", "COL 2", "COL 3", "COL 4", "COL 5", "COL 6"],
+						
+					"row" : [
+								["COl 1 data 1", "COL 2 data 1", "COL 3 data 1", "COL 4 data 1", "COL 5 data 1", "COL 6 data 1"],
+								["COl 1 data 2", "COL 2 data 2", "COL 3 data 2", "COL 4 data 2", "COL 5 data 2", "COL 6 data 2"],
+								["COl 1 data 3", "COL 2 data 3", "COL 3 data 3", "COL 4 data 3", "COL 5 data 3", "COL 6 data 3"],
+							]
+				};
+				
+				 
+				// Call export function with filename and json object 
+				ex.exportToExcel("data.csv",js);
+			})
+
+        });
+    
+    </script>
+    
+    
+</body>
+</html>
